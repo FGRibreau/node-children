@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/grunt/bin/grunt test",
+    "test": "./node_modules/.bin/nodeunit ./test",
     "doc": "./node_modules/doxx/bin/doxx --template docs/template.jade --source lib --target docs"
   },
   "repository": {
