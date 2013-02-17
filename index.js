@@ -1,1 +1,1 @@
-module.exports = require('./lib/Manager');
+module.exports = require('./lib/Childrens');

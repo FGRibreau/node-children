@@ -18,7 +18,7 @@ exports['Child'] = {
     t.expect(12);
 
     var em = new EventEmitter();
-    var child = new Child(em, new path.resolve(__dirname, './fixtures/worker1.js'));
+    var child = new Child(em, {workerPath:path.resolve(__dirname, './fixtures/worker1.js')});
 
     em.once('spawning:child', function(_child, childrens){
       // console.log('spawning:child');
@@ -54,7 +54,7 @@ exports['Child'] = {
   '.kill should work even if the process is already dead': function(t){
     t.expect(2);
     var em    = new EventEmitter();
-    var child = new Child(em, path.resolve(__dirname, './fixtures/worker1.js'));
+    var child = new Child(em, {workerPath:path.resolve(__dirname, './fixtures/worker1.js')});
 
     child.spawn();
     t.equal(child._process.killed, false);
@@ -64,6 +64,23 @@ exports['Child'] = {
     });
 
     child.kill();
+  },
+
+  '.spawn should setup the listener & .send should forward the message to inne process': function(t){
+    t.expect(1);
+    var em    = new EventEmitter();
+    var child = new Child(em, {workerPath:path.resolve(__dirname, './fixtures/workerPingPong.js')});
+
+    em.on('message', function(m){
+      t.equal(m, "pong");
+      child.kill(function(){
+        t.done();
+      });
+    });
+
+    child.spawn(function(){
+      child.send("ping");
+    });
   }
 
 };

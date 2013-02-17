@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/grunt/bin/grunt test"
+    "test": "./node_modules/grunt/bin/grunt test",
+    "doc": "./node_modules/doxx/bin/doxx --template docs/template.jade --source lib --target docs"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "lodash": "~1.0.0",
     "async": "~0.2.5",
     "q": "~0.8.12",
-    "eventemitter2": "~0.4.11"
+    "eventemitter2": "~0.4.11",
+    "doxx": "~0.5.9"
   }
 }
