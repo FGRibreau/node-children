@@ -7,7 +7,7 @@ Concurrent tasks computation among nodejs child processes
 
 
 * evented API
-* auto-respawn dead process
+* auto-respawn dead processes
 
 ### NPM
 
@@ -15,3 +15,12 @@ Concurrent tasks computation among nodejs child processes
 ```
 npm install childrens
 ```
+
+Events
+======
+
+`ready(childrens)`
+`spawning:child(child, childrens)`
+`spawned:child(child, childrens)`
+`killing:child(child, childrens)`
+`killed:child(child, childrens, exitCode, signalCode)`
