@@ -43,8 +43,9 @@ exports['Child'] = {
       // console.log('killed:child');
       t.deepEqual(childrens, em, 'killed:child');
       t.deepEqual(child, _child, 'killed:child');
-      t.strictEqual(exitCode, null, 'killed:child');
-      t.strictEqual(signalCode, 'SIGTERM', 'killed:child');
+      console.log(exitCode, signalCode);
+      t.equal(exitCode, null, 'killed:child');
+      t.equal(signalCode, 'SIGTERM', 'killed:child');
       t.done();
     });
 
