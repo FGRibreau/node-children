@@ -15,7 +15,7 @@ exports['Child'] = {
   },
 
   '.spawn & kill': function(t){
-    t.expect(12);
+    t.expect(10);
 
     var em = new EventEmitter();
     var child = new Child(em, {workerPath:path.resolve(__dirname, './fixtures/worker1.js')});
