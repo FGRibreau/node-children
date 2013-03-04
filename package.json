@@ -1,6 +1,6 @@
 {
   "name": "childrens",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Concurrent tasks computation among nodejs child processes",
   "main": "index.js",
   "directories": {

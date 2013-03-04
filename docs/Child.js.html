@@ -182,7 +182,6 @@
             <pre><code class="language-javascript">Child.prototype.spawn = function(fn){
   // Kill the child if it was already launched
   this.kill();
-
   this.em.emit('spawning:child', this, this.em);
   this._process = fork(this.options.workerPath, this.options.args, this.options.spawn_options);
   this._process.on('message', this.em.emit.bind(this.em, &quot;message&quot;));
