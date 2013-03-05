@@ -1,4 +1,4 @@
-Node Childrens [![Build Status](https://drone.io/github.com/FGRibreau/node-childrens/status.png)](https://drone.io/github.com/FGRibreau/node-childrens/latest)
+Node Children [![Build Status](https://drone.io/github.com/FGRibreau/node-children/status.png)](https://drone.io/github.com/FGRibreau/node-children/latest)
 ==============
 
 Concurrent tasks computation among nodejs child processes
@@ -9,38 +9,38 @@ Concurrent tasks computation among nodejs child processes
 * Underscore methods available on child process collections
 
 ## NPM
-Install the module with: `npm install childrens`
+Install the module with: `npm install children`
 
-## [Documentation](http://fgribreau.github.com/node-childrens/docs/index.html)
+## [Documentation](http://fgribreau.github.com/node-children/docs/index.html)
 
 ## Usage
 ```javascript
-var childrens = require('childrens')(path.resolve(__dirname, './worker2.js'), {
+var children = require('children')(path.resolve(__dirname, './worker2.js'), {
   // @see Manager.defaults
 });
 
-childrens.start(function(){
+children.start(function(){
   // Or listen to the `ready` event
 
-  childrens.send("hello world");
+  children.send("hello world");
 });
 ```
 
-`childrens` is a collection of child process that implements [~28 underscore methods](http://backbonejs.org/#Collection-Underscore-Methods)
+`children` is a collection of child process that implements [~28 underscore methods](http://backbonejs.org/#Collection-Underscore-Methods)
 
 ```javascript
-> childrens.pluck('pid')
+> children.pluck('pid')
 [ 47494, 47495, 47496, 47497 ]
 ```
 
 
 ## Available events
-`ready(childrens)`
-`respawning:child(child, childrens)`
-`spawning:child(child, childrens)`
-`spawned:child(child, childrens)`
-`killing:child(child, childrens)`
-`killed:child(child, childrens, exitCode, signalCode)`
+`ready(children)`
+`respawning:child(child, children)`
+`spawning:child(child, children)`
+`spawned:child(child, children)`
+`killing:child(child, children)`
+`killed:child(child, children, exitCode, signalCode)`
 
 ## Todo
 * Update documentation

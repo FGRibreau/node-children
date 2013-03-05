@@ -107,12 +107,12 @@
           <ul class="nav nav-list bs-docs-sidenav affix-top">
             <li class=""><a href="index.html">Main</a></li>
             <li class=""><a href="Child.js.html">Child.js</a></li>
-            <li class="active"><a href="Childrens.js.html">Childrens.js</a></li>
+            <li class="active"><a href="Children.js.html">Children.js</a></li>
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
               <li><a href="#what">What/Getting Started/Who ?</a></li>
-              <li><a href="#Childrens"><i class="alert alert-info"></i>Childrens</a>
+              <li><a href="#Children"><i class="alert alert-info"></i>Children</a>
               </li>
               <li><a href="#start"><i class="alert alert-info"></i>start</a>
               </li>
@@ -148,10 +148,10 @@
               <h1>Documentation</h1>
             </div>
           </section>
-          <section id="Childrens">
-            <h1>Childrens</h1>
+          <section id="Children">
+            <h1>Children</h1>
             <p>
-              <div class="label label-info radius ctx-type">function</div><span>Childrens()</span>
+              <div class="label label-info radius ctx-type">function</div><span>Children()</span>
             </p>
           </section>
           <table class="table table-bordered table-striped">
@@ -176,21 +176,21 @@
             </tbody>
           </table>
           <div class="description"><p>Manage child processes</p> 
-            <pre><code class="language-javascript">function Childrens(workerPath, options){
-  if(!(this instanceof Childrens)){
-    return new Childrens(workerPath, options);
+            <pre><code class="language-javascript">function Children(workerPath, options){
+  if(!(this instanceof Children)){
+    return new Children(workerPath, options);
   }
 
   EventEmitter2.call(this, {wildcard: false});
 
-  this.options            = _.defaults(options || {}, Childrens.defaults);
+  this.options            = _.defaults(options || {}, Children.defaults);
   this.options.workerPath = workerPath;
 
   if(!this.options.resetEnv){
     this.options.spawn_options.env = process.env;
   }
 
-  // Childrens array
+  // Children array
   this.childs        = [];
   this._shuttingDown = false;
 
@@ -199,9 +199,9 @@
   }
 }
 
-util.inherits(Childrens, EventEmitter2);
+util.inherits(Children, EventEmitter2);
 
-Childrens.prototype._autorespawn = function(child){
+Children.prototype._autorespawn = function(child){
   if(this._shuttingDown){return;}
   _.defer(function(){
     this.emit('respawning:child', child, this);
@@ -214,7 +214,7 @@ Childrens.prototype._autorespawn = function(child){
           <section id="start">
             <h1>start</h1>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>Childrens.prototype.start()</span>
+              <div class="label label-info radius ctx-type">method</div><span>Children.prototype.start()</span>
             </p>
           </section>
           <table class="table table-bordered table-striped">
@@ -228,13 +228,13 @@ Childrens.prototype._autorespawn = function(child){
             <tbody>
               <tr>
                 <td>fn</td>
-                <td>Function(Childrens),Null</td>
+                <td>Function(Children),Null</td>
                 <td>Callback when done</td>
               </tr>
             </tbody>
           </table>
-          <div class="description"><p>Init childrens, emit "ready" when done</p> 
-            <pre><code class="language-javascript">Childrens.prototype.start = function(fn){
+          <div class="description"><p>Init children, emit "ready" when done</p> 
+            <pre><code class="language-javascript">Children.prototype.start = function(fn){
   function initChild(id, fn){
     var child = new Child(this, this.options);
     child.spawn(fn.bind(null, null, child));
@@ -256,7 +256,7 @@ Childrens.prototype._autorespawn = function(child){
           <section id="shutdown">
             <h1>shutdown</h1>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>Childrens.prototype.shutdown()</span> -> <span>Childrens</span>
+              <div class="label label-info radius ctx-type">method</div><span>Children.prototype.shutdown()</span> -> <span>Children</span>
             </p>
           </section>
           <table class="table table-bordered table-striped">
@@ -270,13 +270,13 @@ Childrens.prototype._autorespawn = function(child){
             <tbody>
               <tr>
                 <td>fn</td>
-                <td>Function(Childrens),Undefined</td>
+                <td>Function(Children),Undefined</td>
                 <td>Callback when done</td>
               </tr>
             </tbody>
           </table>
           <div class="description"><p>Shutdown all workers</p> 
-            <pre><code class="language-javascript">Childrens.prototype.shutdown = function(fn){
+            <pre><code class="language-javascript">Children.prototype.shutdown = function(fn){
   this._shuttingDown = true;
 
   var iter   = function(child, done){
@@ -293,14 +293,14 @@ Childrens.prototype._autorespawn = function(child){
 };
 
 
-Childrens.prototype.send = function(obj){
+Children.prototype.send = function(obj){
   this.invoke(&quot;send&quot;, obj);
 };</code></pre>
           </div>
           <section id="debug">
             <h1>debug</h1>
             <p>
-              <div class="label label-info radius ctx-type">method</div><span>Childrens.prototype.debug()</span>
+              <div class="label label-info radius ctx-type">method</div><span>Children.prototype.debug()</span>
             </p>
           </section>
           <table class="table table-bordered table-striped">
@@ -320,7 +320,7 @@ Childrens.prototype.send = function(obj){
             </tbody>
           </table>
           <div class="description"><p>Useful helper for debug</p> 
-            <pre><code class="language-javascript">Childrens.prototype.debug = function(fn){
+            <pre><code class="language-javascript">Children.prototype.debug = function(fn){
   function debugFn(ev, child){
     console.log(ev, child.pid);
   }
@@ -335,11 +335,11 @@ Childrens.prototype.send = function(obj){
           <section id="defaults">
             <h1>defaults</h1>
             <p>
-              <div class="label label-success radius ctx-type">property</div><span>Childrens.defaults</span>
+              <div class="label label-success radius ctx-type">property</div><span>Children.defaults</span>
             </p>
           </section>
-          <div class="description"><p>Childrens default options</p> 
-            <pre><code class="language-javascript">Childrens.defaults = {</code></pre>
+          <div class="description"><p>Children default options</p> 
+            <pre><code class="language-javascript">Children.defaults = {</code></pre>
           </div>
           <section>
             <h1></h1>

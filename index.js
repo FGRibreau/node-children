@@ -1,1 +1,1 @@
-module.exports = require('./lib/Childrens');
+module.exports = require('./lib/Children');
