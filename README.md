@@ -1,5 +1,6 @@
-Node Children [![Build Status](https://drone.io/github.com/FGRibreau/node-children/status.png)](https://drone.io/github.com/FGRibreau/node-children/latest)
+Node Children [![Build Status](https://drone.io/github.com/FGRibreau/node-children/status.png)](https://drone.io/github.com/FGRibreau/node-children/latest) [![Gittip](http://badgr.co/gittip/fgribreau.png)](https://www.gittip.com/fgribreau/)
 ==============
+
 
 Concurrent tasks computation among nodejs child processes
 
@@ -48,6 +49,9 @@ children.start(function(){
 
 ## Release History
 v0.1.0 - Initial commit (17 fev. 2012)
+
+## Donate
+[Donate Bitcoins](https://coinbase.com/checkouts/fc3041b9d8116e0b98e7d243c4727a30)
 
 ## License
 Copyright (c) 2013 Francois-Guillaume Ribreau
