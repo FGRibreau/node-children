@@ -2,11 +2,10 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width" charset="utf-8">
-    <title>Node Childrens - Concurrent tasks computation among nodejs child processes (vertical scaling)</title>
-    <!-- Foundation CSS-->
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css">
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/docs.css">
+    <title>children</title>
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/2.3.2/assets/css/docs.css">
     <style>
       body > .navbar .brand {
         float:left;
@@ -25,61 +24,28 @@
         margin-right:0.5em;
       }
       
-      section#opt{text-align:center}
+      .bs-docs-sidenav > li:first-child > a {
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+      }
       
       code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px white;font-family:Consolas,Monaco,'Andale Mono',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number{color:#905}.token.selector,.token.attr-name,.token.string{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.regex,.token.important{color:#e90}.token.important{font-weight:bold}.token.entity{cursor:help}
       div.description {margin: 14px 0; padding-top: 14px; border-bottom:1px solid #eee; }
       .tags {}
-      .ctx-type { 
+      .ctx-type {
         display:inline-block;
         margin-right:0.5em;
-        //- float:right; margin-top:8px 
+        //- float:right; margin-top:8px
       }
       
-      .popover {width:510px;}
-      .popover img{width:500px; min-height:239px;}
+      footer iframe{vertical-align:middle;}
       
-      
-      @import url(http://fonts.googleapis.com/css?family=Pacifico);
-      
-      .navbar-inverse .nav.sponsored > li.inter > p{
-        color:#999;
-        padding:10px 0.5em 0 0.5em;
-      }
-      
-      .navbar-inverse .nav > li.sponsor{
-        transition:all 200ms linear;
-      }
-      
-      .navbar-inverse .nav > li.sponsor:hover{
-        transform:rotate(10deg);
-        transition:all 100ms linear;
-      }
-      
-      .navbar-inverse .nav > li.sponsor-bringr{
-        background-color: #ffffff;
-      }
-        .navbar-inverse .nav > li.sponsor-bringr > a{
-          font-family: "Pacifico";
-          font-size: 17px;
-          line-height: 19px;
-          color: black;
-        }
-        
-      .navbar-inverse .nav > li.sponsor-redsmin{
-        background-image: radial-gradient(50% 100%,#C91E13 0,#8E1509 100%);
-      }
-        .navbar-inverse .nav > li.sponsor-redsmin a{
-          color:white;
-          line-height: 19px;
-        }
-        
     </style>
   </head>
   <body data-spy="scroll" data-target=".scrollspy">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container"><a class="brand">Node Childrens</a>
+        <div class="container"><a class="brand">Node Children</a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right sponsored">
               <li class="inter">
@@ -97,7 +63,7 @@
     </div>
     <header id="overview" class="jumbotron subhead">
       <div class="container">
-        <h1>Node Childrens</h1>
+        <h1>Node Children</h1>
         <p class="lead">Concurrent tasks computation among nodejs child processes (vertical scaling)</p>
       </div>
     </header>
@@ -111,60 +77,64 @@
           </ul>
           <div class="scrollspy">
             <ul class="nav nav-list bs-docs-sidenav affix-top">
-              <li><a href="#what">What/Getting Started/Who ?</a></li>
             </ul>
           </div>
         </div>
         <div class="span9">
-          <section id="opt">
-            <iframe src="http://ghbtns.com/github-btn.html?user=fgribreau&amp;repo=node-childrens&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="140" height="30"></iframe>
-            <iframe src="http://ghbtns.com/github-btn.html?user=fgribreau&amp;repo=node-childrens&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="140" height="30"></iframe>
-            <iframe src="http://ghbtns.com/github-btn.html?user=fgribreau&amp;repo=node-childrens&amp;type=follow&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="300" height="30"></iframe><a href="https://twitter.com/intent/tweet?button_hashtag=node-childrens&amp;text=Concurrent%20tasks%20computation%20among%20nodejs%20child%20processes%20%2Fby%20%40fgribreau" data-size="large" data-related="FGRibreau" data-url="http://fgribreau.github.com/node-childrens/docs/node-childrens.js.html" class="twitter-hashtag-button">Share on Twitter</a>
-          </section>
-          <section id="demo">
-            <div class="page-header">
-              <h1>Getting Started</h1>
-            </div>
-            <p><a href="https://github.com/FGRibreau/node-childrens/tree/master/examples">See the working example code  </a>. We accept pull-requests!</p>
-          </section>
-          <section id="who">
-            <div class="page-header">
-              <h1>Who are you?</h1>
-              <p>My name is Francois-Guillaume Ribreau, I <a href="http://twitter.com/FGRibreau">discover, share (twitter)</a>, <a href="http://blog.fgribreau.com/">learn (blog)</a>, <a href="https://github.com/FGRibreau?tab=repositories">code (github)</a>, <a href="http://bringr.net" data-placement="top" title="Outil d'analyse des réseaux sociaux" class="bringr">d</a><a href="http://redsmin.com" data-placement="top" title="Fully featured GUI for Redis" class="redsmin">o</a>.</p>
-            </div>
-          </section>
+          <section id="Main"><h1 id="node-children-build-status-https-drone-io-github-com-fgribreau-node-children-status-png-https-drone-io-github-com-fgribreau-node-children-latest-">Node Children <a href="https://drone.io/github.com/FGRibreau/node-children/latest"><img src="https://drone.io/github.com/FGRibreau/node-children/status.png" alt="Build Status"></a></h1>
+<p>Concurrent tasks computation among nodejs child processes</p>
+<h3 id="features">Features</h3>
+<ul>
+<li>Evented API (with <a href="https://github.com/hij1nx/EventEmitter2">EventEmitter2</a>)</li>
+<li>Auto-respawn dead processes</li>
+<li>Underscore methods available on child processes</li>
+</ul>
+<h2 id="npm">NPM</h2>
+<p>Install module with: <code>npm install children</code></p>
+<h2 id="-documentation-http-fgribreau-github-com-node-children-docs-index-html-"><a href="http://fgribreau.github.com/node-children/docs/index.html">Documentation</a></h2>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-javascript">var children = require(&#39;children&#39;)(path.resolve(__dirname, &#39;./worker2.js&#39;), {
+  // @see Manager.defaults
+});
+
+children.start(function(){
+  // Or listen to the `ready` event
+
+  children.send(&quot;hello world&quot;);
+});</code></pre>
+<p><code>children</code> is a collection of child process that implements <a href="http://backbonejs.org/#Collection-Underscore-Methods">~28 underscore methods</a></p>
+<pre><code class="lang-javascript">&gt; children.pluck(&#39;pid&#39;)
+[ 47494, 47495, 47496, 47497 ]</code></pre>
+<h2 id="available-events">Available events</h2>
+<p><code>ready(children)</code><br><code>respawning:child(child, children)</code><br><code>spawning:child(child, children)</code><br><code>spawned:child(child, children)</code><br><code>killing:child(child, children)</code><br><code>killed:child(child, children, exitCode, signalCode)</code></p>
+<h2 id="todo">Todo</h2>
+<ul>
+<li>Update documentation</li>
+<li>Better examples</li>
+</ul>
+<h2 id="release-history">Release History</h2>
+<p>v0.1.0 - Initial commit (17 fev. 2012)</p>
+<h2 id="license">License</h2>
+<p>Copyright (c) 2013 Francois-Guillaume Ribreau<br>Licensed under the MIT license.</p>
+</section>
         </div>
       </div>
     </div>
     <footer class="footer">
       <div class="container">
         <p>Documentation generated with <a href="https://github.com/FGRibreau/doxx">Doxx </a>created by <a href="https://twitter.com/FGRibreau" data-show-count="false" class="twitter-follow-button">Francois-Guillaume Ribreau</a></p>
-        <p>Doxx is sponsored by <a href="http://bringr.net/?btt" data-placement="top" title="Outil d'analyse des réseaux sociaux" class="bringr">Bringr </a>and <a href="https://redsmin.com/?btt" data-placement="top" title="Fully featured GUI for Redis" class="redsmin">Redsmin</a></p>
+        <p>Doxx is sponsored by <a href="http://bringr.net/?btt" title="Outil d'analyse des réseaux sociaux" class="bringr">Bringr </a>and <a href="https://redsmin.com/?btt" title="Full Redis GUI" class="redsmin">Redsmin</a></p>
         <p>Theme borrowed from Twitter Bootstrap</p>
       </div>
     </footer>
     <script src="http://platform.twitter.com/widgets.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="http://leaverou.github.com/prefixfree/prefixfree.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-affix.js"></script>
-    <script>
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1844157-4']);
-      _gaq.push(['_trackPageview']);
-      
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-      
-    </script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-affix.js"></script>
     <script>
       /**
        * Prism: Lightweight, robust, elegant syntax highlighting
@@ -181,23 +151,12 @@
     <script>
       $(function(){
         var $window = $(window);
-        $('.bs-docs-sidenav').affix({
+        $('.scrollspy .nav').affix({
           offset: {
             top: function () { return $window.width() <= 980 ? 480 : 400 }
-          , bottom: 127
+          , bottom: 50
           }
         });
-        
-        var c = {trigger:'hover', html:true};
-        $('.bringr').popover($.extend({
-          title:"Outil d'analyse des réseaux sociaux",
-          content:"<img src=\"http://farm9.staticflickr.com/8358/8376503257_0f71beb262.jpg\"/>"
-        }, c));
-        
-        $('.redsmin').popover($.extend({
-          title:"Fully featured GUI for Redis",
-          content:"<img src=\"http://farm9.staticflickr.com/8475/8376696703_c96da066e3.jpg\"/>"
-        }, c));
       })
     </script>
   </body>

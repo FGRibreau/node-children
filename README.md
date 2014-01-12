@@ -5,11 +5,11 @@ Concurrent tasks computation among nodejs child processes
 
 ### Features
 * Evented API (with [EventEmitter2](https://github.com/hij1nx/EventEmitter2))
-* Auto-respawn of dead processes
-* Underscore methods available on child process collections
+* Auto-respawn dead processes
+* Underscore methods available on child processes
 
 ## NPM
-Install the module with: `npm install children`
+Install module with: `npm install children`
 
 ## [Documentation](http://fgribreau.github.com/node-children/docs/index.html)
 

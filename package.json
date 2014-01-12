@@ -1,6 +1,6 @@
 {
   "name": "children",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Concurrent tasks computation among nodejs child processes",
   "main": "index.js",
   "directories": {
@@ -30,6 +30,6 @@
     "async": "~0.2.5",
     "q": "~0.8.12",
     "eventemitter2": "~0.4.11",
-    "doxx": "~0.5.9"
+    "doxx": "~0.7.2"
   }
 }

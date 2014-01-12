@@ -4,19 +4,14 @@ mixin iForSymbolType(symbol)
 mixin labelForSymbolType(symbol)
   div(class=["label", "label-"+(symbol.gtype === "function" || symbol.gtype === "method" ? "info":"success"), "radius", "ctx-type"])= symbol.ctx.type
 
-    //- alert alert-warning
 doctype 5
 html
   head
     meta(name='viewport', content='width=device-width', charset='utf-8')
-
-    title Node Childrens - Concurrent tasks computation among nodejs child processes (vertical scaling)
-
-    // Foundation CSS
-    link(rel="stylesheet", href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css")
-    link(rel="stylesheet", href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css")
-    link(rel="stylesheet", href="http://twitter.github.com/bootstrap/assets/css/docs.css")
-
+    title= title
+    link(rel="stylesheet", href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css")
+    link(rel="stylesheet", href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css")
+    link(rel="stylesheet", href="http://getbootstrap.com/2.3.2/assets/css/docs.css")
     style
       body > .navbar .brand {
         float:left;
@@ -35,60 +30,27 @@ html
         margin-right:0.5em;
       }
 
-      section#opt{text-align:center}
+      .bs-docs-sidenav > li:first-child > a {
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+      }
 
       code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px white;font-family:Consolas,Monaco,'Andale Mono',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*="language-"]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*="language-"],pre[class*="language-"]{background:#f5f2f0}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number{color:#905}.token.selector,.token.attr-name,.token.string{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.regex,.token.important{color:#e90}.token.important{font-weight:bold}.token.entity{cursor:help}
       div.description {margin: 14px 0; padding-top: 14px; border-bottom:1px solid #eee; }
       .tags {}
-      .ctx-type { 
+      .ctx-type {
         display:inline-block;
         margin-right:0.5em;
-        //- float:right; margin-top:8px 
+        //- float:right; margin-top:8px
       }
 
-      .popover {width:510px;}
-      .popover img{width:500px; min-height:239px;}
-
-
-      @import url(http://fonts.googleapis.com/css?family=Pacifico);
-
-      .navbar-inverse .nav.sponsored > li.inter > p{
-        color:#999;
-        padding:10px 0.5em 0 0.5em;
-      }
-
-      .navbar-inverse .nav > li.sponsor{
-        transition:all 200ms linear;
-      }
-
-      .navbar-inverse .nav > li.sponsor:hover{
-        transform:rotate(10deg);
-        transition:all 100ms linear;
-      }
-
-      .navbar-inverse .nav > li.sponsor-bringr{
-        background-color: #ffffff;
-      }
-        .navbar-inverse .nav > li.sponsor-bringr > a{
-          font-family: "Pacifico";
-          font-size: 17px;
-          line-height: 19px;
-          color: black;
-        }
-
-      .navbar-inverse .nav > li.sponsor-redsmin{
-        background-image: radial-gradient(50% 100%,#C91E13 0,#8E1509 100%);
-      }
-        .navbar-inverse .nav > li.sponsor-redsmin a{
-          color:white;
-          line-height: 19px;
-        }
+      footer iframe{vertical-align:middle;}
 
   body(data-spy="scroll", data-target=".scrollspy")
     div.navbar.navbar-inverse.navbar-fixed-top
       div.navbar-inner
         div.container
-          a.brand Node Childrens
+          a.brand Node Children
           div.nav-collapse.collapse
             ul.nav.pull-right.sponsored
               li.inter
@@ -103,8 +65,9 @@ html
 
     header.jumbotron.subhead#overview
       div.container
-        h1 Node Childrens
+        h1 Node Children
         p.lead Concurrent tasks computation among nodejs child processes (vertical scaling)
+
 
     .container
       .row
@@ -112,12 +75,10 @@ html
           ul.nav.nav-list.bs-docs-sidenav.affix-top
             each file in files
               li(class=(file.name !== currentName ? "":"active"))
-                a(href=file.targetName) #{file.name}
+                a(href=file.relName) #{file.name}
 
           .scrollspy
             ul.nav.nav-list.bs-docs-sidenav.affix-top
-              li
-                a(href='#what') What/Getting Started/Who ?
               each symbol in symbols
                 li
                   if name === currentName
@@ -128,101 +89,50 @@ html
                       mixin iForSymbolType(symbol) #{symbol.name}
 
         .span9
-          section#opt
-            iframe(src="http://ghbtns.com/github-btn.html?user=fgribreau&repo=node-childrens&type=watch&count=true&size=large",  allowtransparency="true", frameborder="0", scrolling="0", width="140", height="30")
-            iframe(src="http://ghbtns.com/github-btn.html?user=fgribreau&repo=node-childrens&type=fork&count=true&size=large",   allowtransparency="true", frameborder="0", scrolling="0", width="140", height="30")
-            iframe(src="http://ghbtns.com/github-btn.html?user=fgribreau&repo=node-childrens&type=follow&count=true&size=large", allowtransparency="true", frameborder="0", scrolling="0", width="300", height="30")
-            a(href="https://twitter.com/intent/tweet?button_hashtag=node-childrens&text=Concurrent%20tasks%20computation%20among%20nodejs%20child%20processes%20%2Fby%20%40fgribreau", class="twitter-hashtag-button", data-size="large", data-related="FGRibreau", data-url="http://fgribreau.github.com/node-childrens/docs/node-childrens.js.html") Share on Twitter
-            
-          //- section#what
-          //-   .page-header
-          //-     h1 What provides node-childrens ?
-          //-   ul
-          //-     p Clear Separation of Concerns
-          //-     p Supports any Template Engine (e.g. 
-          //-       a(href="http://underscorejs.org/#template") Underscore Templates
-          //-       | )
-          //-       ul
-          //-         li
-          //-           code Mailing.compile(mailDir, {templateEngine: engine});
-          //-     p Supports any Mail Provider (e.g  
-          //-       a(href="http://github.com/FGRibreau/node-childrens-mandrill") Mandrill
-          //-       | )
-          //-       ul
-          //-         li
-          //-           code Mailing.compile(mailDir, {mailProvider: require('transacemail-mandrill')('apikey')});
-          //-     p Supports any number of CSS files for each email. CSS is automatically inlined for free thanks to 
-          //-       a(href="https://github.com/LearnBoost/juice") Juice
-          //-     p Supports any file extension
-          //-       ul
-          //-         li
-          //-           code Mailing.Mail.DEFAULT_HTML_EXT = ".html";
-          //-         li
-          //-           code Mailing.Mail.DEFAULT_TEXT_EXT = ".text";
-          //-         li
-          //-           code Mailing.Mail.DEFAULT_META_EXT = ".meta.js";
-
-          section#demo
-            .page-header
-              h1 Getting Started
-            p
-              a(href="https://github.com/FGRibreau/node-childrens/tree/master/examples") See the working example code  
-              | . We accept pull-requests!
-
-          section#who
-            .page-header
-              h1 Who are you?
-              p My name is Francois-Guillaume Ribreau, I 
-                a(href="http://twitter.com/FGRibreau") discover, share (twitter)
-                | , 
-                a(href="http://blog.fgribreau.com/") learn (blog)
-                | , 
-                a(href="https://github.com/FGRibreau?tab=repositories") code (github)
-                | , 
-                a.bringr(href="http://bringr.net", data-placement='top', title="Outil d'analyse des réseaux sociaux") d
-                a.redsmin(href="http://redsmin.com", data-placement='top', title="Fully featured GUI for Redis") o
-                |.
-          - if (dox.length > 0)
-            section#who
-              .page-header
-                h1 Documentation
-
+          if locals.readme
+            section(id=name) !{readme}
           each symbol in dox
-            section(id=symbol.ctx.name)
-                h1= symbol.ctx.name
-                if !symbol.gtype && symbol.type
-                  p
-                    div(class=["label", "label-inverse", "radius", "ctx-type"])= symbol.type
-                else
-                  p
-                    mixin labelForSymbolType(symbol)
-                    if symbol.ctx.string
-                      span= symbol.ctx.string
-                    if symbol.return
-                      |  -> 
-                      span= symbol.return
+            if symbol.ctx.name
+              section(id=symbol.ctx.name)
+                  h1= symbol.ctx.name
+                  h5.subheader
+                  if !symbol.gtype && symbol.type
+                    p
+                      div(class=["label", "label-inverse", "radius", "ctx-type"])= symbol.type
+                  else
+                    p
+                      mixin labelForSymbolType(symbol)
+                      if symbol.ctx.string
+                        span= symbol.ctx.string
+                      if symbol.return
+                        |  ->
+                        span= symbol.return
 
-              if symbol.hasParams
-                table.table.table-bordered.table-striped
-                  thead
-                    tr
-                      th(style="width:20%") Option name
-                      th(style="width:20%") Type
-                      th Description
-                  tbody
-                    each tag in symbol.tags
-                      if tag.type == 'param'
-                        tr
-                          td= tag.name
-                          td= tag.types
-                          td= tag.description
+            if symbol.hasParams
+              table.table.table-bordered.table-striped
+                thead
+                  tr
+                    th(style="width:20%") Option name
+                    th(style="width:20%") Type
+                    th Description
+                tbody
+                  each tag in symbol.tags
+                    if tag.type == 'param'
+                      tr
+                        td= tag.name
+                        td= tag.types
+                        td= tag.description
 
-              .description !{symbol.description.full} !{symbol.description.extra}
-
+            .description !{symbol.description.full} !{symbol.description.extra}
+            if symbol.code
               pre
                 code.language-javascript
                   = symbol.code
-         
+            if symbol.jsfiddle
+              h5 jsFiddle
+              p
+                iframe(width="100%", height="300", src=symbol.jsfiddle , allowfullscreen="allowfullscreen", frameborder="0")
+
     footer.footer
       div.container
         p Documentation generated with 
@@ -230,33 +140,19 @@ html
           | created by 
           a.twitter-follow-button(href='https://twitter.com/FGRibreau',data-show-count='false') Francois-Guillaume Ribreau
         p Doxx is sponsored by 
-          a.bringr(href='http://bringr.net/?btt', data-placement='top', title="Outil d'analyse des réseaux sociaux") Bringr 
+          a.bringr(href='http://bringr.net/?btt', title="Outil d'analyse des réseaux sociaux") Bringr 
           | and 
-          a.redsmin(href='https://redsmin.com/?btt', data-placement='top', title="Fully featured GUI for Redis") Redsmin
+          a.redsmin(href='https://redsmin.com/?btt', title="Full Redis GUI") Redsmin
         p Theme borrowed from Twitter Bootstrap
 
-    
     script(src="http://platform.twitter.com/widgets.js")
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js")
     script(src="http://leaverou.github.com/prefixfree/prefixfree.js")
-    script(src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js")
-    script(src="http://twitter.github.com/bootstrap/assets/js/bootstrap-scrollspy.js")
-    script(src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js")
-    script(src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js")
-    script(src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js")
-    script(src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js")
-    script(src="http://twitter.github.com/bootstrap/assets/js/bootstrap-affix.js")
-
-    script
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1844157-4']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    script(src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-transition.js")
+    script(src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-scrollspy.js")
+    script(src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-dropdown.js")
+    script(src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-collapse.js")
+    script(src="http://getbootstrap.com/2.3.2/assets/js/bootstrap-affix.js")
 
     script
       /**
@@ -273,21 +169,10 @@ html
     script
       $(function(){
         var $window = $(window);
-        $('.bs-docs-sidenav').affix({
+        $('.scrollspy .nav').affix({
           offset: {
             top: function () { return $window.width() <= 980 ? 480 : 400 }
-          , bottom: 127
+          , bottom: 50
           }
         });
-
-        var c = {trigger:'hover', html:true};
-        $('.bringr').popover($.extend({
-          title:"Outil d'analyse des réseaux sociaux",
-          content:"<img src=\"http://farm9.staticflickr.com/8358/8376503257_0f71beb262.jpg\"/>"
-        }, c));
-
-        $('.redsmin').popover($.extend({
-          title:"Fully featured GUI for Redis",
-          content:"<img src=\"http://farm9.staticflickr.com/8475/8376696703_c96da066e3.jpg\"/>"
-        }, c));
       })
