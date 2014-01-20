@@ -69,11 +69,12 @@ exports['Child'] = {
   },
 
   '.spawn should setup the listener & .send should forward the message to inne process': function(t){
-    t.expect(1);
+    t.expect(2);
     var em    = new EventEmitter();
     var child = new Child(em, {workerPath:path.resolve(__dirname, './fixtures/workerPingPong.js')});
 
-    em.on('message', function(m){
+    em.on('message', function(child, m){
+      t.deepEqual(child, child);
       t.equal(m, "pong");
       child.kill(function(){
         t.done();
