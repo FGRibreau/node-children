@@ -1,7 +1,10 @@
 var CPU_LENGTH = require('os').cpus().length;
-var Children  = require('../lib/Children');
+var Children   = require('../lib/Children');
 var path       = require('path');
+var async      = require('async');
 var _          = require('lodash');
+var spawn      = require('child_process').spawn;
+var exec       = require('child_process').exec;
 
 exports['Children'] = {
   setUp: function(done) {
@@ -164,6 +167,45 @@ exports['Children'] = {
     children.start(function(){
       children.send("ping");
     });
+  },
 
+  'killOnExit:true should automatically kill children on exit':function(t){
+    var pids
+    ,   child = spawn('node', [path.resolve(__dirname, './fixtures/master1.js')]);
+
+    child.stdout.on('data', function (data) {
+      data = data.toString();
+      if(data[0] === '['){
+        // data should be PID
+        pids = JSON.parse(data);
+      }
+    });
+
+    /**
+     * [pidsExists description]
+     * @param  {Array} pids array of pids
+     * @param  {Function} f({Boolean}eachPidWasKilled) true if all pids have been killed
+     */
+    function eachPidWasKilled(pids, f){
+      function checkIsKilled(pid, f){
+        exec('kill -0 '+ pid, function(error, stdout, stderr){
+          f(null, !!error);
+        });
+      }
+
+      async.map(pids, checkIsKilled, function(err, results){
+        if(err){return f(false);}
+        f(_.every(results, function(v){return v === true;}));
+      });
+
+    }
+
+    // Master should exit after created childrens
+    child.on('exit', function(){
+      eachPidWasKilled(pids, function(eachPidWasKilled){
+        t.ok(eachPidWasKilled, "every child have been killed");
+        t.done();
+      });
+    });
   }
 };
