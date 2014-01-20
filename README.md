@@ -20,9 +20,9 @@ var children = require('children')(path.resolve(__dirname, './worker2.js'), {
   // @see Manager.defaults
 });
 
+// Start all childrens
 children.start(function(){
-  // Or listen to the `ready` event
-
+  // specify a callback or listen to the `ready` event
   children.send("hello world");
 });
 ```
@@ -34,9 +34,9 @@ children.start(function(){
 [ 47494, 47495, 47496, 47497 ]
 ```
 
-
 ## Available events
 `ready(children)`
+`message(child)`
 `respawning:child(child, children)`
 `spawning:child(child, children)`
 `spawned:child(child, children)`

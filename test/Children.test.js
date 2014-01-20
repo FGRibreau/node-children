@@ -148,17 +148,17 @@ exports['Children'] = {
   '.send':function(t){
     t.expect(2);
 
-    var children = Children(path.resolve(__dirname, './fixtures/workerPingPong.js'), {childs:2});
+    var children = Children(path.resolve(__dirname, './fixtures/workerPingPong.js'), {
+      childs:1
+    });
 
-    var i = 0;
-    children.on('message', function(m){
-      t.ok(m, "pong");
-      if(++i == 2){
+    children.on('message', function(child, m){
+      t.deepEqual(child, children.at(0)[0]);
+      t.strictEqual(m, "pong");
 
-        children.shutdown(function(){
-          t.done();
-        });
-      }
+      children.shutdown(function(){
+        t.done();
+      });
     });
 
     children.start(function(){
