@@ -1,4 +1,4 @@
-Node Children [![Build Status](https://drone.io/github.com/FGRibreau/node-children/status.png)](https://drone.io/github.com/FGRibreau/node-children/latest) [![Gittip](http://badgr.co/gittip/fgribreau.png)](https://www.gittip.com/fgribreau/) [![Deps](https://david-dm.org/FGRibreau/node-children.png)](https://david-dm.org/FGRibreau/node-children) [![Version](http://badge.fury.io/js/children.png)](http://badge.fury.io/js/children)
+Node Children [![Build Status](https://drone.io/github.com/FGRibreau/node-children/status.png)](https://drone.io/github.com/FGRibreau/node-children/latest) [![Deps](https://david-dm.org/FGRibreau/node-children.png)](https://david-dm.org/FGRibreau/node-children) [![Version](http://badge.fury.io/js/children.png)](http://badge.fury.io/js/children)
 ==============
 ![npm](https://nodei.co/npm/children.png)
 
