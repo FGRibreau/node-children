@@ -48,7 +48,9 @@ children.start(function(){
 * Update documentation
 * Better examples
 
+
 ## Release History
+v0.2.2 - Updated doxx (19 oct. 2014)
 v0.1.0 - Initial commit (17 fev. 2012)
 
 ## Donate

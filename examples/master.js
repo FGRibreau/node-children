@@ -1,22 +1,23 @@
-var manager = require('../');
-var path    = require('path');
+'use strict';
 
-var children = manager(path.resolve(__dirname, './child'),{
+var manager = require('../');
+var path = require('path');
+
+var children = manager(path.resolve(__dirname, './child'), {
   autoRestart: true
 });
 
-children.on("message", function(m){
+children.on("message", function (m) {
   console.log("Master got...", m);
 });
 
-children.start(function(){
+children.start(function () {
   children.send("ping");
 });
 
-setTimeout(function(){
+setTimeout(function () {
   console.log("CLOSING...");
-  children.shutdown(function(){
+  children.shutdown(function () {
     console.log("DONE");
   });
 }, 2000);
-
